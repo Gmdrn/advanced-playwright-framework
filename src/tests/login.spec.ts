@@ -1,5 +1,6 @@
 import {expect,test} from '@playwright/test';
 import {LoginPage} from '../pages/LoginPage';
+import {credentials} from '@config/credentials';
 import {createLogger} from '../utils/logger';
 
 test.describe('TTA-cart Login Tests',()=>{
@@ -13,7 +14,7 @@ test.beforeEach(async ({page})=>
 test ('log in with valid credentials @p0',async ({page})=>{
     await test.step('Login with valid credentials', async () => {
         log.info('Attempting login with valid credentials');
-        await loginPage.loginAs('standard_user','tta_secret');
+        await loginPage.loginAs(credentials.standardUser, credentials.password);
         log.info('Login attempt completed');
     });
 
